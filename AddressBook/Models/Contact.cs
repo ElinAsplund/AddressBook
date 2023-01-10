@@ -10,13 +10,8 @@ internal interface IContact
 
     //Address-info
     string StreetName { get; set; }
-    string StreetNumber { get; set; }
     string PostalCode { get; set; }
     string City { get; set; }
-
-    //Displays
-    string DisplayContact => $"{FirstName} {LastName} <{Email}>";
-    string DisplayAddress => $"{StreetName} {StreetNumber}, {PostalCode} {City}";
 }
 
 internal class Contact : IContact
@@ -27,7 +22,6 @@ internal class Contact : IContact
     public string PhoneNumber { get; set; } = null!;
     public string Email { get; set; } = null!;
     public string StreetName { get; set; } = null!;
-    public string StreetNumber { get; set; } = null!;
     public string PostalCode { get; set; } = null!;
     public string City { get; set; } = null!;
 }
