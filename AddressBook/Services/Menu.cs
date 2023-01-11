@@ -100,6 +100,7 @@ internal class Menu
 
         contacts.Add(contact);
         file.Save(FilePath, JsonConvert.SerializeObject(contacts));
+        Console.Write("\nKontakten är nu skapad!");
 
         Console.ReadKey();
     }
@@ -108,9 +109,16 @@ internal class Menu
     {
         Console.Clear();
         Console.WriteLine("-- ALLA KONTAKTER --\n");
-        foreach(Contact contact in contacts) 
+        if (contacts.Count == 0)
         {
-            Console.WriteLine($"{contact.FirstName} {contact.LastName} <{contact.Email}>");
+            Console.Write("Här finns inga kontakter än!\n\n(tryck på en valfri knapp för att komma vidare...)");
+        }
+        else
+        {
+            foreach (Contact contact in contacts) 
+            {
+                Console.WriteLine($"{contact.FirstName} {contact.LastName} <{contact.Email}>");
+            }
         }
         Console.ReadKey();
     }
@@ -119,34 +127,47 @@ internal class Menu
         Console.Clear();
         Console.WriteLine("-- DETALJERAD KONTAKT-INFORMATION --\n");
 
-        foreach (Contact contact in contacts)
+        if (contacts.Count == 0)
         {
-            Console.WriteLine($"{contact.FirstName} {contact.LastName} <{contact.Email}>");
+            Console.Write("Här finns inga kontakter än!\n\n(tryck på en valfri knapp för att komma vidare...)");
         }
-        Console.Write("\nSkriv förnamnet på kontakten du vill se den detailjerade informationen om: ");
-        var readFirstName = Console.ReadLine();
-        Console.Clear();
-
-        if(readFirstName != null)
+        else
         {
-            var foundContact = contacts.FirstOrDefault(x => x.FirstName.ToLower() == readFirstName.ToLower());
-
-            if(foundContact != null)
+            foreach (Contact contact in contacts)
             {
-                Console.WriteLine($"-- LÅT MIG PRESENTERA! --\n");
-                Console.WriteLine($"Förnamn: {foundContact.FirstName}");
-                Console.WriteLine($"Efternamn: {foundContact.LastName}");
-                Console.WriteLine($"Email: {foundContact.Email}");
-                Console.WriteLine($"Telefonnummer: {foundContact.PhoneNumber}");
-                Console.WriteLine($"Adress: {foundContact.StreetName}, {foundContact.PostalCode} {foundContact.City}");
+                Console.WriteLine($"{contact.FirstName} {contact.LastName} <{contact.Email}>");
+            }
+            Console.Write("\nSkriv förnamnet på kontakten du vill se den detailjerade informationen om: ");
+            var readFirstName = Console.ReadLine();
+            Console.Clear();
+
+            if(readFirstName != null && readFirstName != "")
+            {
+                //string firstCapitalizedName = char.ToUpper(readFirstName.First()) + readFirstName.Substring(1).ToLower();
+                string firstCapitalizedChar = makeCapitalizedFirstChar(readFirstName);
+
+                var foundContact = contacts.FirstOrDefault(x => x.FirstName.ToLower() == readFirstName.ToLower());
+
+                if(foundContact != null)
+                {
+                    Console.WriteLine($"-- LÅT MIG PRESENTERA! --\n");
+                    Console.WriteLine($"Förnamn: {foundContact.FirstName}");
+                    Console.WriteLine($"Efternamn: {foundContact.LastName}");
+                    Console.WriteLine($"Email: {foundContact.Email}");
+                    Console.WriteLine($"Telefonnummer: {foundContact.PhoneNumber}");
+                    Console.WriteLine($"Adress: {foundContact.StreetName}, {foundContact.PostalCode} {foundContact.City}");
+                }
+                else
+                {
+                    Console.WriteLine("-- TOMT! --\n");
+                    Console.WriteLine($"Ingen kontakt med namnet {firstCapitalizedChar} hittades!");
+                }
             }
             else
             {
-                Console.WriteLine("-- TOMT! --\n");
-                Console.WriteLine($"Ingen kontakt med namnet ({readFirstName}) hittades!");
+                ErrorMessege();
             }
         }
-
         Console.ReadKey();
     }
     private void OptionFour()
@@ -154,36 +175,58 @@ internal class Menu
         Console.Clear();
         Console.WriteLine("-- TA BORT EN KONTAKT --\n");
 
-        foreach (Contact contact in contacts)
+        if(contacts.Count == 0)
         {
-            Console.WriteLine($"{contact.FirstName} {contact.LastName} <{contact.Email}>");
+            Console.Write("Här finns inget att ta bort!\n\n(tryck på en valfri knapp för att komma vidare...)");
+            Console.ReadKey();
         }
-        Console.Write("\nSkriv förnamnet på kontakten du vill ta bort: ");
-        var readFirstName = Console.ReadLine();
-
-
-        Console.Clear();
-
-        if (readFirstName != null)
+        else
         {
-            string firstCapitalizedName = char.ToUpper(readFirstName.First()) + readFirstName.Substring(1).ToLower();
-            
-            var foundContact = contacts.FirstOrDefault(x => x.FirstName.ToLower() == readFirstName.ToLower());
-
-            if (foundContact != null)
+            foreach (Contact contact in contacts)
             {
-                contacts.Remove(foundContact);
-                file.Save(FilePath, JsonConvert.SerializeObject(contacts));
-                Console.WriteLine($"-- RADERAD --\n");
-                Console.WriteLine($"Kontakten med namnet {firstCapitalizedName}, är nu borttagen!");
+                Console.WriteLine($"{contact.FirstName} {contact.LastName} <{contact.Email}>");
+            }
+            Console.Write("\nSkriv förnamnet på kontakten du vill ta bort: ");
+            var readFirstName = Console.ReadLine();
+            Console.Clear();
+
+            if (readFirstName != null && readFirstName != "")
+            {
+                //string firstCapitalizedName = char.ToUpper(readFirstName.First()) + readFirstName.Substring(1).ToLower();
+                string firstCapitalizedChar = makeCapitalizedFirstChar(readFirstName);
+
+                var foundContact = contacts.FirstOrDefault(x => x.FirstName.ToLower() == readFirstName.ToLower());
+
+                if (foundContact != null)
+                {
+                    contacts.Remove(foundContact);
+                    file.Save(FilePath, JsonConvert.SerializeObject(contacts));
+                    Console.WriteLine($"-- RADERAD --\n");
+                    Console.WriteLine($"Kontakten med namnet {firstCapitalizedChar}, är nu borttagen!");
+                }
+                else
+                {
+                    Console.WriteLine("-- TOMT! --\n");
+                    Console.WriteLine($"Kontakten med namnet: {firstCapitalizedChar} hittades inte i adressboken!");
+                }
             }
             else
             {
-                Console.WriteLine("-- TOMT! --\n");
-                Console.WriteLine($"En kontakt med namnet ({firstCapitalizedName}) hittades inte i adressboken!");
+                ErrorMessege();
             }
-        }
 
-        Console.ReadKey();
+            Console.ReadKey();
+        }
+    }
+
+    private void ErrorMessege()
+    {
+        Console.WriteLine("-- OJ! NÅGOT GICK FEL, FÖRSÖK IGEN --\n\n(tryck på en valfri knapp för att komma vidare...)");
+    }
+
+    private string makeCapitalizedFirstChar(string readString)
+    {
+        string firstCapitalizedFirstChar = char.ToUpper(readString.First()) + readString.Substring(1).ToLower();
+        return firstCapitalizedFirstChar;
     }
 }
