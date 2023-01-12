@@ -8,7 +8,6 @@ internal class Menu
     private List<Contact> contacts = new List<Contact>();
     private bool isRunning = true;
     private FileService file = new FileService();
-
     public string FilePath { get; set; } = null!;
     public void WelcomeMenu()
     {
@@ -41,17 +40,10 @@ internal class Menu
                     OptionFour();
                     break;
                 case "5":
-                    Console.Clear();
-                    Console.WriteLine("             _________\r\n            / ======= \\\r\n           / __________\\\r\n          | ___________ |\r\n          | | -       | |\r\n          | |         | |\r\n          | |_________| |________________________\r\n          \\=____________/        BYE BYE! <3     )\r\n          / \"\"\"\"\"\"\"\"\"\"\" \\                       /\r\n         / ::::::::::::: \\                  =D-'\r\n        (_________________)");
-                    Console.WriteLine("\n           __..--''``---....___   _..._    __\r\n /// //_.-'    .-/\";  `        ``<._  ``.''_ `. / // /\r\n///_.-' _..--.'_    \\                    `( ) ) // //\r\n/ (_..-' // (< _     ;_..__               ; `' / ///\r\n / // // //  `-._,_)' // / ``--...____..-' /// / //");
-                    Console.ReadKey();
-                    isRunning = false;
+                    OptionFive();
                     break;
                 default:
-                    Console.Clear();
-                    Console.WriteLine("-- OJ! NÅGOT GICK FEL --\n\nVänligen ange en SIFFRA 1-5!\n(tryck på en valfri knapp för att komma vidare...)");
-                    Console.ReadKey();
-                    WelcomeMenu();
+                    SwitchDefault();
                     break;
             }
         }
@@ -68,7 +60,6 @@ internal class Menu
         }
         catch { }
     }
-
     private void OptionOne()
     {
         Console.Clear();
@@ -104,14 +95,13 @@ internal class Menu
 
         Console.ReadKey();
     }
-
     private void OptionTwo()
     {
         Console.Clear();
         Console.WriteLine("-- ALLA KONTAKTER --\n");
         if (contacts.Count == 0)
         {
-            Console.Write("Här finns inga kontakter än!\n\n(tryck på en valfri knapp för att komma vidare...)");
+            Console.Write("Här finns inga kontakter just nu!\n\n(tryck på en valfri knapp för att komma vidare...)");
         }
         else
         {
@@ -129,7 +119,7 @@ internal class Menu
 
         if (contacts.Count == 0)
         {
-            Console.Write("Här finns inga kontakter än!\n\n(tryck på en valfri knapp för att komma vidare...)");
+            Console.Write("Här finns inga kontakter just nu!\n\n(tryck på en valfri knapp för att komma vidare...)");
         }
         else
         {
@@ -143,7 +133,6 @@ internal class Menu
 
             if(readFirstName != null && readFirstName != "")
             {
-                //string firstCapitalizedName = char.ToUpper(readFirstName.First()) + readFirstName.Substring(1).ToLower();
                 string firstCapitalizedChar = makeCapitalizedFirstChar(readFirstName);
 
                 var foundContact = contacts.FirstOrDefault(x => x.FirstName.ToLower() == readFirstName.ToLower());
@@ -218,12 +207,24 @@ internal class Menu
             Console.ReadKey();
         }
     }
-
+    private void OptionFive()
+    {
+        Console.Clear();
+        Console.WriteLine("             _________\r\n            / ======= \\\r\n           / __________\\\r\n          | ___________ |\r\n          | | -       | |\r\n          | |         | |\r\n          | |_________| |________________________\r\n          \\=____________/        BYE BYE! <3     )\r\n          / \"\"\"\"\"\"\"\"\"\"\" \\                       /\r\n         / ::::::::::::: \\                  =D-'\r\n        (_________________)");
+        Console.WriteLine("\n           __..--''``---....___   _..._    __\r\n /// //_.-'    .-/\";  `        ``<._  ``.''_ `. / // /\r\n///_.-' _..--.'_    \\                    `( ) ) // //\r\n/ (_..-' // (< _     ;_..__               ; `' / ///\r\n / // // //  `-._,_)' // / ``--...____..-' /// / //");
+        Console.ReadKey();
+        isRunning = false;
+    }
+    private void SwitchDefault()
+    {
+        Console.Clear();
+        Console.WriteLine("-- OJ! NÅGOT GICK FEL --\n\nVänligen ange en SIFFRA 1-5!\n(tryck på en valfri knapp för att komma vidare...)");
+        Console.ReadKey();
+    }
     private void ErrorMessege()
     {
         Console.WriteLine("-- OJ! NÅGOT GICK FEL, FÖRSÖK IGEN --\n\n(tryck på en valfri knapp för att komma vidare...)");
     }
-
     private string makeCapitalizedFirstChar(string readString)
     {
         string firstCapitalizedFirstChar = char.ToUpper(readString.First()) + readString.Substring(1).ToLower();
