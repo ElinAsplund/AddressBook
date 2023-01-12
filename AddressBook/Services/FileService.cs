@@ -16,10 +16,6 @@ internal class FileService
         {
             using var sr = new StreamReader(filePath);
 
-            //string hej = sr.ReadToEnd();
-            //dynamic array = JsonConvert.DeserializeObject(hej) ?? null!;
-            //return array;
-
             return sr.ReadToEnd();
         }
         catch 
