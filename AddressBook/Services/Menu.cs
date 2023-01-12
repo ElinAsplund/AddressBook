@@ -11,7 +11,6 @@ internal class Menu
     public string FilePath { get; set; } = null!;
     public void WelcomeMenu()
     {
-
         while (isRunning)
         {
             PopulateContactsList();
@@ -43,12 +42,11 @@ internal class Menu
                     OptionFive();
                     break;
                 default:
-                    SwitchDefault();
+                    OptionDefault();
                     break;
             }
         }
     }
-
     private void PopulateContactsList() 
     {
         try
@@ -68,7 +66,23 @@ internal class Menu
         Console.WriteLine("-- SKAPA EN NY KONTAKT --\n");
 
         Console.Write("Ange förnamn: ");
-        contact.FirstName = Console.ReadLine() ?? "";
+        string firstName = Console.ReadLine() ?? "";
+        while (firstName == "" || firstName == null)
+        {
+            Console.Clear();
+            Console.WriteLine("-- SKAPA EN NY KONTAKT --");
+            Console.Write("\nOBS! Du måste ange att förnamn! Prova igen.\n----------------------------------------------------------------------\nAnge förnamn: ");
+            firstName = Console.ReadLine() ?? "";
+
+            if (firstName != null && firstName != "")
+            {
+                Console.Clear();
+                Console.WriteLine("-- SKAPA EN NY KONTAKT --\n");
+                Console.Write("PERFEKT! Då fortsätter vi!\n----------------------------------------------------------------------\n");
+                Console.Write($"Ange förnamn: {firstName}\n");
+            }
+        }
+        contact.FirstName = firstName;
 
         Console.Write("Ange efternamn: ");
         contact.LastName = Console.ReadLine() ?? "";
@@ -91,7 +105,7 @@ internal class Menu
 
         contacts.Add(contact);
         file.Save(FilePath, JsonConvert.SerializeObject(contacts));
-        Console.Write("\nKontakten är nu skapad!");
+        Console.Write($"\nKontakten {firstName} är nu skapad!");
 
         Console.ReadKey();
     }
@@ -101,7 +115,7 @@ internal class Menu
         Console.WriteLine("-- ALLA KONTAKTER --\n");
         if (contacts.Count == 0)
         {
-            Console.Write("Här finns inga kontakter just nu!\n\n(tryck på en valfri knapp för att komma vidare...)");
+            Console.Write("Här finns inga kontakter just nu!\n----------------------------------------------------------------------\n(tryck på en valfri knapp för att komma vidare...)");
         }
         else
         {
@@ -119,7 +133,7 @@ internal class Menu
 
         if (contacts.Count == 0)
         {
-            Console.Write("Här finns inga kontakter just nu!\n\n(tryck på en valfri knapp för att komma vidare...)");
+            Console.Write("Här finns inga kontakter just nu!\n----------------------------------------------------------------------\n(tryck på en valfri knapp för att komma vidare...)");
         }
         else
         {
@@ -127,7 +141,7 @@ internal class Menu
             {
                 Console.WriteLine($"{contact.FirstName} {contact.LastName} <{contact.Email}>");
             }
-            Console.Write("\nSkriv förnamnet på kontakten du vill se den detailjerade informationen om: ");
+            Console.Write("\nSkriv förnamnet på kontakten du vill se den detaljerade informationen om: ");
             var readFirstName = Console.ReadLine();
             Console.Clear();
 
@@ -166,7 +180,7 @@ internal class Menu
 
         if(contacts.Count == 0)
         {
-            Console.Write("Här finns inget att ta bort!\n\n(tryck på en valfri knapp för att komma vidare...)");
+            Console.Write("Här finns inget att ta bort!\n----------------------------------------------------------------------\n(tryck på en valfri knapp för att komma vidare...)");
             Console.ReadKey();
         }
         else
@@ -181,7 +195,6 @@ internal class Menu
 
             if (readFirstName != null && readFirstName != "")
             {
-                //string firstCapitalizedName = char.ToUpper(readFirstName.First()) + readFirstName.Substring(1).ToLower();
                 string firstCapitalizedChar = makeCapitalizedFirstChar(readFirstName);
 
                 var foundContact = contacts.FirstOrDefault(x => x.FirstName.ToLower() == readFirstName.ToLower());
@@ -190,13 +203,13 @@ internal class Menu
                 {
                     contacts.Remove(foundContact);
                     file.Save(FilePath, JsonConvert.SerializeObject(contacts));
-                    Console.WriteLine($"-- RADERAD --\n");
-                    Console.WriteLine($"Kontakten med namnet {firstCapitalizedChar}, är nu borttagen!");
+                    Console.WriteLine("-- TA BORT EN KONTAKT --\n");
+                    Console.WriteLine($"Kontakten med namnet {firstCapitalizedChar}, är nu borttagen!\n----------------------------------------------------------------------");
                 }
                 else
                 {
-                    Console.WriteLine("-- TOMT! --\n");
-                    Console.WriteLine($"Kontakten med namnet: {firstCapitalizedChar} hittades inte i adressboken!");
+                    Console.WriteLine("-- TA BORT EN KONTAKT --\n");
+                    Console.WriteLine($"Kontakten med namnet: {firstCapitalizedChar} \nhittades inte i adressboken!\n----------------------------------------------------------------------\n(tryck på en valfri knapp för att komma vidare...)");
                 }
             }
             else
@@ -215,15 +228,15 @@ internal class Menu
         Console.ReadKey();
         isRunning = false;
     }
-    private void SwitchDefault()
+    private void OptionDefault()
     {
         Console.Clear();
-        Console.WriteLine("-- OJ! NÅGOT GICK FEL --\n\nVänligen ange en SIFFRA 1-5!\n(tryck på en valfri knapp för att komma vidare...)");
+        Console.WriteLine("-- OJ! NÅGOT GICK FEL --\n\nVänligen ange en SIFFRA 1-5!\n----------------------------------------------------------------------\n(tryck på en valfri knapp för att komma vidare...)");
         Console.ReadKey();
     }
     private void ErrorMessege()
     {
-        Console.WriteLine("-- OJ! NÅGOT GICK FEL, FÖRSÖK IGEN --\n\n(tryck på en valfri knapp för att komma vidare...)");
+        Console.WriteLine("-- OJ! NÅGOT GICK FEL, FÖRSÖK IGEN --\n\n----------------------------------------------------------------------\n(tryck på en valfri knapp för att komma vidare...)");
     }
     private string makeCapitalizedFirstChar(string readString)
     {
