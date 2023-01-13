@@ -9,12 +9,11 @@
 
   <ItemGroup>
     <Compile Remove="Interfaces\**" />
+    <Compile Remove="Models\AbstractModels\**" />
     <EmbeddedResource Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Models\AbstractModels\**" />
     <None Remove="Interfaces\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\AbstractModels\" />
+    <None Remove="Models\AbstractModels\**" />
   </ItemGroup>
 
   <ItemGroup>
