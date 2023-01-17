@@ -143,7 +143,6 @@ internal class Menu
 
             if(readFirstName != null && readFirstName != "")
             {
-                //string firstCapitalizedName = char.ToUpper(readFirstName.First()) + readFirstName.Substring(1).ToLower();
                 string firstCapitalizedChar = makeCapitalizedFirstChar(readFirstName);
 
                 var foundContact = contacts.FirstOrDefault(x => x.FirstName.ToLower() == readFirstName.ToLower());
@@ -192,7 +191,6 @@ internal class Menu
 
             if (readFirstName != null && readFirstName != "")
             {
-                //string firstCapitalizedName = char.ToUpper(readFirstName.First()) + readFirstName.Substring(1).ToLower();
                 string firstCapitalizedChar = makeCapitalizedFirstChar(readFirstName);
 
                 var foundContact = contacts.FirstOrDefault(x => x.FirstName.ToLower() == readFirstName.ToLower());
