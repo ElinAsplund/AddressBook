@@ -3,10 +3,115 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:WPFAddressBook.MVVM.Models"
         xmlns:local="clr-namespace:WPFAddressBook"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:viewmodels="clr-namespace:WPFAddressBook.MVVM.ViewModels"
+        xmlns:views="clr-namespace:WPFAddressBook.MVVM.Views"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+    <Grid Margin="0">
+    <!--<Grid Margin="20">-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="HEJ" />
+            <TextBlock Text="PÅ" />
+            <TextBlock Text="DIG" />
+            <Button Content="KLICK"></Button>
+        </StackPanel>
+
+        <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">
+            <!--<ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel}">
+                    <views:ContactsView />
+                </DataTemplate>
+            </ContentControl.Resources>-->
+        </ContentControl>
+
+        <!--HÄR BÖRJAR EGENKOD FÖR MANAGE CONTACTS-->
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>-->
+        
+        <!--NAVIGATION-->
+        <!--<Grid Grid.Column="0">
+            
+        </Grid>-->
+
+        <!--FORM-->
+        <!--<Grid Grid.Column="1" Margin="0 0 30 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+                        
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="Förnamn"/>
+                <TextBox Name="tb_FirstName" Padding="3" Margin="0 0 0 10" />
+            
+                <TextBlock Text="Efternamn"/>
+                <TextBox Name="tb_LastName" Padding="3" Margin="0 0 0 10" />
+            
+                <TextBlock Text="Telefonnummer"/>
+                <TextBox Name="tb_PhoneNumber" Padding="3" Margin="0 0 0 10" />
+            
+                <TextBlock Text="Email"/>
+                <TextBox Name="tb_Email" Padding="3" Margin="0 0 0 10" />
+            
+                <TextBlock Text="Gatuadress"/>
+                <TextBox Name="tb_SteetName" Padding="3" Margin="0 0 0 10" />
+            
+                <TextBlock Text="Postkod"/>
+                <TextBox Name="tb_PostalCode" Padding="3" Margin="0 0 0 10" />
+            
+                <TextBlock Text="Stad"/>
+                <TextBox Name="tb_City" Padding="3" Margin="0 0 0 10" />
+            </StackPanel>
+
+            <Button Name="btn_Add" Click="Btn_Add_Click" Grid.Row="1" VerticalAlignment="Bottom" Content="LÄGG TILL" Padding="5" />
+        </Grid>-->
+
+        <!--LIST OF CONTACTS-->
+        <!--<ListView Name="lv_Contacts" Grid.Column="2" Margin="30 0 0 0" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="models:Contact">
+                    <StackPanel Margin="0 5 0 5" Width="325">
+                        <StackPanel>
+                            <TextBlock Name="tblock_DisplayName" FontWeight="Bold" Text="{Binding DisplayName}" />
+                            <TextBlock Name="tblock_Email" Text="{Binding Email}" />
+                        </StackPanel>
+                        <Button Name="btn_Remove" Click="Btn_Remove_Click" Content="TA BORT" Padding="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+        
+        <!--LITE EXEMPEL-SYNTAX:-->
+        <!--
+            <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="HEEEEJ!"/>
+        </Grid>
+        -->
     </Grid>
 </Window>

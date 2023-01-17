@@ -8,8 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Models\AbstractModels\" />
+    <Compile Remove="Interfaces\**" />
+    <Compile Remove="Models\AbstractModels\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Models\AbstractModels\**" />
+    <None Remove="Interfaces\**" />
+    <None Remove="Models\AbstractModels\**" />
   </ItemGroup>
 
   <ItemGroup>

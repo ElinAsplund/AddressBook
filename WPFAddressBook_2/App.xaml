@@ -1,7 +1,9 @@
-﻿<Application x:Class="WPFAddressBook.App"
+﻿<Application x:Class="WPFAddressBook_2.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WPFAddressBook">
+             xmlns:local="clr-namespace:WPFAddressBook_2">
+    <!--StartupUri="MainWindow.xaml">-->
+    
     <Application.Resources>
          
     </Application.Resources>

@@ -5,9 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using WPFAddressBook.MVVM.ViewModels;
+using WPFAddressBook_2.MVVM.ViewModels;
 
-namespace WPFAddressBook
+namespace WPFAddressBook_2
 {
     /// <summary>
     /// Interaction logic for App.xaml
