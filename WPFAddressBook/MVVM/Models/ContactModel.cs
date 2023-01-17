@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WPFAddressBook.Models;
+namespace WPFAddressBook.MVVM.Models;
 
 internal interface IContact
 {
@@ -16,7 +16,7 @@ internal interface IContact
     string City { get; set; }
 }
 
-internal class Contact : IContact
+internal class ContactModel : IContact
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public string FirstName { get; set; } = null!;
