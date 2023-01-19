@@ -34,9 +34,13 @@ namespace WPFAddressBook_2.MVVM.Views
             var button = sender as Button;
             var item = (ContactModel)button!.DataContext;
 
-
-
-            ContactService.Remove(item);
+            if (MessageBox.Show("Är du säker på att du vill ta bort kontakten?",
+                "Ta bort kontakt",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                ContactService.Remove(item);
+            }
         }
     }
 }
