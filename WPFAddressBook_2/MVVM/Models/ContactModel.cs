@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPFAddressBook_2.MVVM.Models;
 
-internal interface IContact
+public interface IContact
 {
     Guid Id { get; set; }
     string FirstName { get; set; }
@@ -20,7 +20,7 @@ internal interface IContact
     string City { get; set; }
 }
 
-internal class ContactModel : IContact
+public class ContactModel : IContact
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public string FirstName { get; set; } = null!;

@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,18 @@ namespace WPFAddressBook_2.MVVM.ViewModels
     {
         [ObservableProperty]
         private ObservableObject currentViewModel;
+
+        [RelayCommand]
+        private void GoToDetails()
+        {
+            CurrentViewModel = new DetailsViewModel();
+        }
+        
+        [RelayCommand]
+        private void GoToContacts()
+        {
+            CurrentViewModel= new ContactsViewModel();
+        }
 
         public MainViewModel()
         {
