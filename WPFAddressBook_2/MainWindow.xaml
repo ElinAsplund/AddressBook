@@ -17,8 +17,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Command="{Binding GoToContactsCommand}" Content="Contacts" Margin="5" Padding="20 5" Background="CornflowerBlue" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
-            <Button Command="{Binding GoToDetailsCommand}" Content="Details" Margin="5" Padding="20 5" Background="CornflowerBlue" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
+            <Button Command="{Binding GoToContactsCommand}" Content="Contacts" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
+            <Button Command="{Binding GoToDetailsCommand}" Content="Details" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
         </StackPanel>
 
         <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">

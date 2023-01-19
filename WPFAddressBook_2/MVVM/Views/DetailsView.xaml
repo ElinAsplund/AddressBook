@@ -10,6 +10,19 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Background="Black">
             <TextBlock Text="IT'S IN THE" FontWeight="Bold" FontSize="20" Padding="20 20 20 0" Foreground="White" />
             <TextBlock Text="DETAILS" FontWeight="Light" FontSize="10" HorizontalAlignment="Right" FontStyle="Italic" Padding="20 0 20 20" Foreground="Gray" />
+            <Button Content="TEST: SHOW" Click="Button_Click" Background="White"/>
         </StackPanel>
+
+        <Popup  Name="MyPopup"
+               Placement="Mouse"
+               HorizontalOffset="-250"
+               VerticalOffset="-150"
+               AllowsTransparency="False">
+            <StackPanel Background="Aquamarine">
+                <TextBlock Text="Why did the C++ developer wear glasses?" Padding="200 70 200 0" HorizontalAlignment="Center"/>
+                <TextBlock Text="Because he couldn't C#" Padding="200 0 200 70" HorizontalAlignment="Center"/>
+                <Button Content="HIDE" Name="Btn_Hide" Click="Btn_Hide_Click"  />
+            </StackPanel>
+        </Popup>
     </Grid>
 </UserControl>

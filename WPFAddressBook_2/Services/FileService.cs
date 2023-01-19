@@ -12,9 +12,7 @@ namespace WPFAddressBook_2.Services
 {
     internal class FileService
     {
-        //VIDEO 5: KODEN
         private string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json";
-
 
         public ObservableCollection<ContactModel> ReadFromFile()
         {
@@ -31,45 +29,5 @@ namespace WPFAddressBook_2.Services
             using var sw = new StreamWriter(filePath);
             sw.WriteLine(JsonConvert.SerializeObject(contacts));
         }
-
-
-
-
-
-
-        //public void AddToList(ContactModel contact)
-        //{
-        //    //contacts.Add(contact);
-        //    //SaveToFile();
-        //}
-
-        //public void RemoveFromList(ContactModel contact)
-        //{
-        //    //contacts.Remove(contact);
-        //    //SaveToFile();
-        //}
-
-
-
-        //VIDEO 4: KODEN
-        //public string FilePath { get; set; } = null!;
-        //public void Save(string content)
-        //{
-        //    using var sw = new StreamWriter(FilePath);
-        //    sw.WriteLine(content);
-        //}
-        //public string Read()
-        //{
-        //    try
-        //    {
-        //        using var sr = new StreamReader(FilePath);
-
-        //        return sr.ReadToEnd();
-        //    }
-        //    catch
-        //    {
-        //        return null!;
-        //    }
-        //}
     }
 }
