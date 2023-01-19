@@ -26,22 +26,22 @@
                 <TextBox Name="tb_FirstName" Padding="3" Margin="0 0 0 10" Text="{Binding FirstName}" />
 
                 <TextBlock Text="Efternamn"/>
-                <TextBox Name="tb_LastName" Padding="3" Margin="0 0 0 10" />
+                <TextBox Name="tb_LastName" Padding="3" Margin="0 0 0 10" Text="{Binding LastName}" />
 
                 <TextBlock Text="Telefonnummer"/>
-                <TextBox Name="tb_PhoneNumber" Padding="3" Margin="0 0 0 10" />
+                <TextBox Name="tb_PhoneNumber" Padding="3" Margin="0 0 0 10" Text="{Binding PhoneNumber}" />
 
                 <TextBlock Text="Email"/>
-                <TextBox Name="tb_Email" Padding="3" Margin="0 0 0 10" />
+                <TextBox Name="tb_Email" Padding="3" Margin="0 0 0 10" Text="{Binding Email}"/>
 
                 <TextBlock Text="Gatuadress"/>
-                <TextBox Name="tb_SteetName" Padding="3" Margin="0 0 0 10" />
+                <TextBox Name="tb_SteetName" Padding="3" Margin="0 0 0 10" Text="{Binding StreetName}"/>
 
                 <TextBlock Text="Postkod"/>
-                <TextBox Name="tb_PostalCode" Padding="3" Margin="0 0 0 10" />
+                <TextBox Name="tb_PostalCode" Padding="3" Margin="0 0 0 10" Text="{Binding PostalCode}" />
 
                 <TextBlock Text="Stad"/>
-                <TextBox Name="tb_City" Padding="3" Margin="0 0 0 10" />
+                <TextBox Name="tb_City" Padding="3" Margin="0 0 0 10" Text="{Binding City}" />
             </StackPanel>
 
             <Button Name="btn_Add" Command="{Binding AddContactCommand}" Grid.Row="1" VerticalAlignment="Bottom" Content="LÄGG TILL" Padding="5" Background="MediumAquaMarine" BorderThickness="0" Foreground="White" FontWeight="DemiBold"/>

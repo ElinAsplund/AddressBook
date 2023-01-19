@@ -23,21 +23,27 @@ namespace WPFAddressBook_2.MVVM.ViewModels
 
         [ObservableProperty]
         private string firstName = string.Empty;
+        
+        [ObservableProperty]
+        private string lastName = string.Empty;
+
+        [ObservableProperty]
+        private string phoneNumber = string.Empty;
+
+        [ObservableProperty]
+        private string email = string.Empty;
+
+        [ObservableProperty]
+        private string streetName = string.Empty;
+
+        [ObservableProperty]
+        private string postalCode = string.Empty;
+
+        [ObservableProperty]
+        private string city = string.Empty;
 
         [ObservableProperty]
         private ObservableCollection<ContactModel> contacts;
-
-        //[ObservableProperty]
-        //private ContactModel contact = new ContactModel
-        //{
-        //    FirstName = "",
-        //    LastName = "",
-        //    PhoneNumber = "",
-        //    Email = "",
-        //    StreetName = "",
-        //    PostalCode = "",
-        //    City = ""
-        //};
 
         [RelayCommand]
         private void AddContact()
@@ -45,12 +51,12 @@ namespace WPFAddressBook_2.MVVM.ViewModels
             var contact = new ContactModel
             {
                 FirstName = FirstName,
-                LastName = "",
-                PhoneNumber = "",
-                Email = "",
-                StreetName = "",
-                PostalCode = "",
-                City = ""
+                LastName = LastName,
+                PhoneNumber = PhoneNumber,
+                Email = Email,
+                StreetName = StreetName,
+                PostalCode = PostalCode,
+                City = City
             };
 
             ContactService.Add(contact);
@@ -60,6 +66,12 @@ namespace WPFAddressBook_2.MVVM.ViewModels
         private void ClearForm()
         {
             FirstName = "";
+            LastName = "";
+            PhoneNumber = "";
+            Email = "";
+            StreetName = "";
+            PostalCode = "";
+            City = "";
         }
     }
 }
