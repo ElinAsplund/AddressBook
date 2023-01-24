@@ -45,7 +45,6 @@
             </StackPanel>
 
             <Button Name="btn_Add" Command="{Binding AddContactCommand}" Grid.Row="1" Content="LÄGG TILL" Style="{StaticResource addButton}" />
-            <!--<Button Name="btn_Add" Command="{Binding AddContactCommand}" Grid.Row="1" VerticalAlignment="Bottom" Content="LÄGG TILL" Padding="5" Background="#78b869" BorderThickness="0" Foreground="White" FontWeight="DemiBold"/>-->
         </Grid>
 
         <Grid Grid.Column="1" Margin="30 0 0 0" Name="parent">
@@ -53,7 +52,6 @@
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="models:ContactModel">
                         <StackPanel Margin="0 5 0 5" Width="355" Background="MistyRose">
-                            <!--<StackPanel Margin="0 5 0 5" Width="{Binding ActualWidth, ElementName=parent}">-->
 
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -66,9 +64,9 @@
                                     <TextBlock Name="tblock_Email" Text="{Binding Email  }" />
                                 </StackPanel>
                                 <StackPanel Grid.Column="1" Orientation="Horizontal" >
+                                    <!--HJÄLP, VILL ATT MIN ÄNDRA KNAPP SKA TA MIG TILL MIN DETAILSVIEW.-->
                                     <Button Name="Btn_Edit" Click="Btn_Edit_Click" Content="ÄNDRA" Margin="0 0 5 0" Padding="5" Grid.Column="1" VerticalAlignment="Center" Background="#78b869" BorderThickness="0" Foreground="White" FontWeight="DemiBold"/>
                                     <Button Name="Btn_Remove" Click="Btn_Remove_Click" Content="TA BORT" Grid.Column="1" Style="{StaticResource removeButton}" />
-                                    <!--<Button Name="btn_Remove" Click="Btn_Remove_Click" Content="TA BORT" Margin="0 0 5 0" Padding="5" Grid.Column="1" VerticalAlignment="Center" Background="DarkSalmon" BorderThickness="0" Foreground="White" FontWeight="DemiBold"/>-->
                                 </StackPanel>
                             </Grid>
 
