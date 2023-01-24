@@ -28,14 +28,6 @@ namespace WPFAddressBook_2.MVVM.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //MyPopup.IsOpen = true;
-
-            //if (MessageBox.Show("If the file save fails, do you want to automatically try again?",
-            //        "Save file",
-            //        MessageBoxButton.YesNo,
-            //        MessageBoxImage.Question) == MessageBoxResult.Yes)
-            //{
-            //    // Do something here
-            //}
         }
         private void Btn_Hide_Click(object sender, RoutedEventArgs e)
         {

@@ -13,13 +13,11 @@ namespace WPFAddressBook_2.MVVM.ViewModels
 {
     public partial class ContactsViewModel : ObservableObject
     {
+
         public ContactsViewModel()
         {
             Contacts = ContactService.Get();
         }
-
-        [ObservableProperty]
-        private string pageTitle = "Contacts";
 
         [ObservableProperty]
         private string firstName = string.Empty;
@@ -73,5 +71,18 @@ namespace WPFAddressBook_2.MVVM.ViewModels
             PostalCode = "";
             City = "";
         }
+
+        //HJÄLP, VILL ATT MIN ÄNDRA KNAPP SKA TA MIG TILL MIN DETAILSVIEW.
+
+        //[ObservableProperty]
+        //private ObservableObject mainViewModel = new MainViewModel();
+
+        //[RelayCommand]
+        //private void GoToDetailsView()
+        //{
+        //    var mainViewModel = new MainViewModel();
+        //    mainViewModel.GoToDetails();
+        //}
+
     }
 }

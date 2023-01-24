@@ -6,34 +6,33 @@ using System.Text;
 using System.Threading.Tasks;
 using WPFAddressBook_2.MVVM.Models;
 
-namespace WPFAddressBook_2.Services
+namespace WPFAddressBook_2.Services;
+
+public static class ContactService
 {
-    public static class ContactService
+    private static FileService fileService;
+    private static ObservableCollection<ContactModel> contacts;
+
+    static ContactService()
     {
-        private static FileService fileService;
-        private static ObservableCollection<ContactModel> contacts;
+        fileService = new FileService();
+        contacts = fileService.ReadFromFile();
+    }
 
-        static ContactService()
-        {
-            fileService = new FileService();
-            contacts = fileService.ReadFromFile();
-        }
+    public static void Add(ContactModel contact)
+    {
+        contacts.Add(contact);
+        fileService.SaveToFile(contacts);
+    }
 
-        public static void Add(ContactModel contact)
-        {
-            contacts.Add(contact);
-            fileService.SaveToFile(contacts);
-        }
+    public static void Remove(ContactModel contact)
+    {
+        contacts.Remove(contact);
+        fileService.SaveToFile(contacts);
+    }
 
-        public static void Remove(ContactModel contact)
-        {
-            contacts.Remove(contact);
-            fileService.SaveToFile(contacts);
-        }
-
-        public static ObservableCollection<ContactModel> Get()
-        {
-            return contacts;
-        }
+    public static ObservableCollection<ContactModel> Get()
+    {
+        return contacts;
     }
 }

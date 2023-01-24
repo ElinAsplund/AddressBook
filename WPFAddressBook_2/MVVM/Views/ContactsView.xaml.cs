@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFAddressBook_2.MVVM.Models;
+using WPFAddressBook_2.MVVM.ViewModels;
 using WPFAddressBook_2.Services;
 
 namespace WPFAddressBook_2.MVVM.Views
@@ -41,6 +43,16 @@ namespace WPFAddressBook_2.MVVM.Views
             {
                 ContactService.Remove(item);
             }
+        }
+
+        //HJÄLP, VILL ATT MIN ÄNDRA KNAPP SKA TA MIG TILL MIN DETAILSVIEW.
+        private void Btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var item = (ContactModel)button!.DataContext;
+
+            //var mainViewModel = new MainViewModel();
+            //mainViewModel.GoToDetails();
         }
     }
 }

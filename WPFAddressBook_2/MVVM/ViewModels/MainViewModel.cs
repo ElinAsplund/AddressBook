@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 
 namespace WPFAddressBook_2.MVVM.ViewModels
 {
-    internal partial class MainViewModel : ObservableObject
+    public partial class MainViewModel : ObservableObject
     {
         [ObservableProperty]
-        private ObservableObject currentViewModel;
+        private static ObservableObject currentViewModel;
 
         [RelayCommand]
-        private void GoToDetails()
+        public void GoToDetails()
         {
             CurrentViewModel = new DetailsViewModel();
         }
         
         [RelayCommand]
-        private void GoToContacts()
+        public void GoToContacts()
         {
             CurrentViewModel= new ContactsViewModel();
         }
