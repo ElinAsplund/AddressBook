@@ -14,9 +14,10 @@ namespace WPFAddressBook_2.MVVM.ViewModels
     public partial class ContactsViewModel : ObservableObject
     {
 
-        public ContactsViewModel()
+        public ContactsViewModel(MainViewModel parent)
         {
             Contacts = ContactService.Get();
+            _parent = parent;
         }
 
         [ObservableProperty]
@@ -42,6 +43,9 @@ namespace WPFAddressBook_2.MVVM.ViewModels
 
         [ObservableProperty]
         private ObservableCollection<ContactModel> contacts;
+
+        [ObservableProperty]
+        private MainViewModel _parent;
 
         [RelayCommand]
         private void AddContact()
@@ -77,12 +81,11 @@ namespace WPFAddressBook_2.MVVM.ViewModels
         //[ObservableProperty]
         //private ObservableObject mainViewModel = new MainViewModel();
 
-        //[RelayCommand]
-        //private void GoToDetailsView()
-        //{
-        //    var mainViewModel = new MainViewModel();
-        //    mainViewModel.GoToDetails();
-        //}
+        [RelayCommand]
+        private void GoToDetailsView()
+        {
+            _parent.GoToDetails();
+        }
 
     }
 }

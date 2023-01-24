@@ -48,11 +48,13 @@ namespace WPFAddressBook_2.MVVM.Views
         //HJÄLP, VILL ATT MIN ÄNDRA KNAPP SKA TA MIG TILL MIN DETAILSVIEW.
         private void Btn_Edit_Click(object sender, RoutedEventArgs e)
         {
-            var button = sender as Button;
-            var item = (ContactModel)button!.DataContext;
+            //var button = sender as Button;
+            //var item = (ContactModel)button!.DataContext;
 
             //var mainViewModel = new MainViewModel();
             //mainViewModel.GoToDetails();
+
+            //MainViewModel.GoToDetails();
         }
     }
 }

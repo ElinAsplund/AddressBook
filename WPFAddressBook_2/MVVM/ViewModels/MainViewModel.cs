@@ -22,12 +22,12 @@ namespace WPFAddressBook_2.MVVM.ViewModels
         [RelayCommand]
         public void GoToContacts()
         {
-            CurrentViewModel= new ContactsViewModel();
+            CurrentViewModel= new ContactsViewModel(this);
         }
 
         public MainViewModel()
         {
-            CurrentViewModel = new ContactsViewModel();
+            CurrentViewModel = new ContactsViewModel(this);
         }
     }
 }

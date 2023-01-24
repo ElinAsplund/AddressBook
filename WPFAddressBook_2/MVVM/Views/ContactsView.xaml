@@ -45,6 +45,7 @@
             </StackPanel>
 
             <Button Name="btn_Add" Command="{Binding AddContactCommand}" Grid.Row="1" Content="LÄGG TILL" Style="{StaticResource addButton}" />
+            <!--<Button Name="btn_Test" Command="{Binding GoToDetailsViewCommand}" Grid.Row="1" Content="TEST" VerticalAlignment="Top" />-->
         </Grid>
 
         <Grid Grid.Column="1" Margin="30 0 0 0" Name="parent">
@@ -61,7 +62,7 @@
 
                                 <StackPanel Grid.Column="0" Margin="5 5 5 5">
                                     <TextBlock Name="tblock_DisplayName" FontWeight="Bold" Text="{Binding DisplayName}" />
-                                    <TextBlock Name="tblock_Email" Text="{Binding Email  }" />
+                                    <TextBlock Name="tblock_Email" Text="{Binding Email}" />
                                 </StackPanel>
                                 <StackPanel Grid.Column="1" Orientation="Horizontal" >
                                     <!--HJÄLP, VILL ATT MIN ÄNDRA KNAPP SKA TA MIG TILL MIN DETAILSVIEW.-->
