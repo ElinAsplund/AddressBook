@@ -1,91 +1,84 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WPFAddressBook_2.MVVM.Models;
 using WPFAddressBook_2.Services;
 
-namespace WPFAddressBook_2.MVVM.ViewModels
+namespace WPFAddressBook_2.MVVM.ViewModels;
+
+public partial class ContactsViewModel : ObservableObject
 {
-    public partial class ContactsViewModel : ObservableObject
+
+    public ContactsViewModel(MainViewModel parent)
     {
+        Contacts = ContactService.Get();
+        _parent = parent;
+    }
 
-        public ContactsViewModel(MainViewModel parent)
+    [ObservableProperty]
+    private string firstName = string.Empty;
+    
+    [ObservableProperty]
+    private string lastName = string.Empty;
+
+    [ObservableProperty]
+    private string phoneNumber = string.Empty;
+
+    [ObservableProperty]
+    private string email = string.Empty;
+
+    [ObservableProperty]
+    private string streetName = string.Empty;
+
+    [ObservableProperty]
+    private string postalCode = string.Empty;
+
+    [ObservableProperty]
+    private string city = string.Empty;
+
+    [ObservableProperty]
+    private ObservableCollection<ContactModel> contacts = null!;
+
+    [ObservableProperty]
+    private MainViewModel _parent;
+
+    [RelayCommand]
+    private void AddContact()
+    {
+        var contact = new ContactModel
         {
-            Contacts = ContactService.Get();
-            _parent = parent;
-        }
+            FirstName = FirstName,
+            LastName = LastName,
+            PhoneNumber = PhoneNumber,
+            Email = Email,
+            StreetName = StreetName,
+            PostalCode = PostalCode,
+            City = City
+        };
 
-        [ObservableProperty]
-        private string firstName = string.Empty;
-        
-        [ObservableProperty]
-        private string lastName = string.Empty;
+        ContactService.Add(contact);
+        ClearForm();
+    }
 
-        [ObservableProperty]
-        private string phoneNumber = string.Empty;
+    private void ClearForm()
+    {
+        FirstName = "";
+        LastName = "";
+        PhoneNumber = "";
+        Email = "";
+        StreetName = "";
+        PostalCode = "";
+        City = "";
+    }
 
-        [ObservableProperty]
-        private string email = string.Empty;
+    //HJÄLP, VILL ATT MIN ÄNDRA KNAPP SKA TA MIG TILL MIN DETAILSVIEW.
 
-        [ObservableProperty]
-        private string streetName = string.Empty;
+    //[ObservableProperty]
+    //private ObservableObject mainViewModel = new MainViewModel();
 
-        [ObservableProperty]
-        private string postalCode = string.Empty;
-
-        [ObservableProperty]
-        private string city = string.Empty;
-
-        [ObservableProperty]
-        private ObservableCollection<ContactModel> contacts = null!;
-
-        [ObservableProperty]
-        private MainViewModel _parent;
-
-        [RelayCommand]
-        private void AddContact()
-        {
-            var contact = new ContactModel
-            {
-                FirstName = FirstName,
-                LastName = LastName,
-                PhoneNumber = PhoneNumber,
-                Email = Email,
-                StreetName = StreetName,
-                PostalCode = PostalCode,
-                City = City
-            };
-
-            ContactService.Add(contact);
-            ClearForm();
-        }
-
-        private void ClearForm()
-        {
-            FirstName = "";
-            LastName = "";
-            PhoneNumber = "";
-            Email = "";
-            StreetName = "";
-            PostalCode = "";
-            City = "";
-        }
-
-        //HJÄLP, VILL ATT MIN ÄNDRA KNAPP SKA TA MIG TILL MIN DETAILSVIEW.
-
-        //[ObservableProperty]
-        //private ObservableObject mainViewModel = new MainViewModel();
-
-        [RelayCommand]
-        private void GoToDetailsView()
-        {
-            _parent.GoToDetails();
-        }
-
+    [RelayCommand]
+    private void GoToDetailsView()
+    {
+        _parent.GoToDetails();
     }
 }
