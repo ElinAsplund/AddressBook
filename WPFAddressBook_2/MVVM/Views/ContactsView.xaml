@@ -15,8 +15,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Margin="0 0 30 0" Name="parent">
-            <ListView Name="lv_Contacts" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch">
+        <Grid Grid.Column="0" Margin="0 0 20 0">
+            <ListView ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" SelectionMode="Single">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="models:ContactModel">
                         <StackPanel Margin="0 5 0 5" Background="MistyRose">
@@ -43,8 +43,13 @@
             </ListView>
         </Grid>
 
-        <Grid Grid.Column="1">
-            
+        <Grid Grid.Column="1" Margin="20 0 0 0" Background="Beige">
+            <StackPanel>
+                <TextBlock>
+                    <Run Text="Förnamn:"/>
+                    <Run Text="{Binding DisplayName}"/>
+                </TextBlock>
+            </StackPanel>
         </Grid>
         
     </Grid>

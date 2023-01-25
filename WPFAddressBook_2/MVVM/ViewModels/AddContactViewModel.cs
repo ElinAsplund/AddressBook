@@ -40,10 +40,7 @@ namespace WPFAddressBook_2.MVVM.ViewModels
         private string city = string.Empty;
 
         [ObservableProperty]
-        private ObservableCollection<ContactModel> contacts;
-
-        [ObservableProperty]
-        private MainViewModel _parent;
+        private ObservableCollection<ContactModel> contacts = null!;
 
         [RelayCommand]
         private void AddContact()

@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}" 
              Height="440" Width="840">
-    <Grid Margin="20 5 20 20">
+    <Grid Margin="200 5 200 30">
         <StackPanel Grid.Row="0">
             <TextBlock Text="Förnamn"/>
             <TextBox Name="tb_FirstName" Padding="3" Margin="0 0 0 10" Text="{Binding FirstName}" />

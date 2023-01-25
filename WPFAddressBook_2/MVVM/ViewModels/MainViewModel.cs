@@ -11,7 +11,7 @@ namespace WPFAddressBook_2.MVVM.ViewModels
     public partial class MainViewModel : ObservableObject
     {
         [ObservableProperty]
-        private static ObservableObject currentViewModel;
+        private static ObservableObject currentViewModel = null!;
 
         [RelayCommand]
         public void GoToDetails()
