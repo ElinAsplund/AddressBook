@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Margin="0 0 20 0">
-            <ListView ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" SelectionMode="Single">
+            <ListView BorderThickness="0" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectedItem="{Binding SelectedContact}">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="models:ContactModel">
                         <StackPanel Margin="0 5 0 5" Background="MistyRose">
@@ -44,11 +44,38 @@
         </Grid>
 
         <Grid Grid.Column="1" Margin="20 0 0 0" Background="Beige">
+
             <StackPanel>
                 <TextBlock>
                     <Run Text="Förnamn:"/>
-                    <Run Text="{Binding DisplayName}"/>
+                    <Run Text="{Binding SelectedContact.FirstName}"/>
                 </TextBlock>
+                <TextBox Text="{Binding SelectedContact.FirstName}"/>
+                <TextBlock>
+                    <Run Text="Efternamn:"/>
+                    <Run Text="{Binding SelectedContact.LastName}"/>
+                </TextBlock>
+                <TextBlock>
+                    <Run Text="Telefonnummer:"/>
+                    <Run Text="{Binding SelectedContact.PhoneNumber}"/>
+                </TextBlock>
+                <TextBlock>
+                    <Run Text="Email:"/>
+                    <Run Text="{Binding SelectedContact.Email}"/>
+                </TextBlock>
+                <TextBlock>
+                    <Run Text="Gatuadress:"/>
+                    <Run Text="{Binding SelectedContact.StreetName}"/>
+                </TextBlock>
+                <TextBlock>
+                    <Run Text="Postkod:"/>
+                    <Run Text="{Binding SelectedContact.PostalCode}"/>
+                </TextBlock>
+                <TextBlock>
+                    <Run Text="Stad:"/>
+                    <Run Text="{Binding SelectedContact.City}"/>
+                </TextBlock>
+                <Button Content="SPARA ÄNDRINGAR" Command="{Binding SaveEditsCommand}" Style="{StaticResource addButton}" HorizontalAlignment="Center" />
             </StackPanel>
         </Grid>
         

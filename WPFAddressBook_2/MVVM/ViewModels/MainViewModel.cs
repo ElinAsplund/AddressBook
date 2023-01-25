@@ -1,5 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
+using WPFAddressBook_2.MVVM.Models;
+using WPFAddressBook_2.Services;
 
 namespace WPFAddressBook_2.MVVM.ViewModels;
 
@@ -19,7 +22,7 @@ public partial class MainViewModel : ObservableObject
     {
         CurrentViewModel= new ContactsViewModel(this);
     }
-    
+
     [RelayCommand]
     public void GoToAddContact()
     {

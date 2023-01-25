@@ -29,9 +29,8 @@ public partial class ContactsView : UserControl
         }
     }
 
-    //HJÄLP, VILL ATT MIN ÄNDRA KNAPP SKA TA MIG TILL MIN DETAILSVIEW.
-    private void Btn_Edit_Click(object sender, RoutedEventArgs e)
-    {
+    //private void Btn_Edit_Click(object sender, RoutedEventArgs e)
+    //{
         //var button = sender as Button;
         //var item = (ContactModel)button!.DataContext;
 
@@ -39,7 +38,7 @@ public partial class ContactsView : UserControl
         //mainViewModel.GoToDetails();
 
         //MainViewModel.GoToDetails();
-    }
+    //}
 
     //private void ListView_Selected(object sender, RoutedEventArgs e)
     //{

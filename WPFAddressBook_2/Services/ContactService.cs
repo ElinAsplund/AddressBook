@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using WPFAddressBook_2.MVVM.Models;
 
 namespace WPFAddressBook_2.Services;
@@ -24,6 +25,24 @@ public static class ContactService
     {
         contacts.Remove(contact);
         fileService.SaveToFile(contacts);
+    }
+    
+    public static void Edit(ContactModel selectedContact)
+    {
+        if (selectedContact != null)
+        {
+            //sök efter kontankt som matchar selectedContact
+            ContactModel foundContact = contacts.FirstOrDefault(x => x.Id == selectedContact.Id)!;
+
+            //ta bort gamla kontakten som hittas
+            if(foundContact != null)
+                Remove(foundContact);
+
+            //spara ny kontakt (selectedContact) i contacts
+            Add(selectedContact);
+
+            fileService.SaveToFile(contacts);
+        }
     }
 
     public static ObservableCollection<ContactModel> Get()

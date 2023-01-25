@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows;
 using WPFAddressBook_2.MVVM.Models;
 using WPFAddressBook_2.Services;
 
@@ -8,12 +10,6 @@ namespace WPFAddressBook_2.MVVM.ViewModels;
 
 public partial class ContactsViewModel : ObservableObject
 {
-
-    public ContactsViewModel(MainViewModel parent)
-    {
-        Contacts = ContactService.Get();
-        _parent = parent;
-    }
 
     [ObservableProperty]
     private string firstName = string.Empty;
@@ -39,46 +35,48 @@ public partial class ContactsViewModel : ObservableObject
     [ObservableProperty]
     private ObservableCollection<ContactModel> contacts = null!;
 
+    public ContactsViewModel(MainViewModel parent)
+    {
+        Contacts = ContactService.Get();
+    }
+
+    //[RelayCommand]
+    //private void AddContact()
+    //{
+    //    var contact = new ContactModel
+    //    {
+    //        FirstName = FirstName,
+    //        LastName = LastName,
+    //        PhoneNumber = PhoneNumber,
+    //        Email = Email,
+    //        StreetName = StreetName,
+    //        PostalCode = PostalCode,
+    //        City = City
+    //    };
+
+    //    ContactService.Add(contact);
+    //    ClearForm();
+    //}
+
+    //private void ClearForm()
+    //{
+    //    FirstName = "";
+    //    LastName = "";
+    //    PhoneNumber = "";
+    //    Email = "";
+    //    StreetName = "";
+    //    PostalCode = "";
+    //    City = "";
+    //}
+
     [ObservableProperty]
-    private MainViewModel _parent;
+    private ContactModel selectedContact = null!;
 
     [RelayCommand]
-    private void AddContact()
+    private void SaveEdits()
     {
-        var contact = new ContactModel
-        {
-            FirstName = FirstName,
-            LastName = LastName,
-            PhoneNumber = PhoneNumber,
-            Email = Email,
-            StreetName = StreetName,
-            PostalCode = PostalCode,
-            City = City
-        };
-
-        ContactService.Add(contact);
-        ClearForm();
+        ContactService.Edit(selectedContact);
+        Contacts = ContactService.Get();
     }
 
-    private void ClearForm()
-    {
-        FirstName = "";
-        LastName = "";
-        PhoneNumber = "";
-        Email = "";
-        StreetName = "";
-        PostalCode = "";
-        City = "";
-    }
-
-    //HJÄLP, VILL ATT MIN ÄNDRA KNAPP SKA TA MIG TILL MIN DETAILSVIEW.
-
-    //[ObservableProperty]
-    //private ObservableObject mainViewModel = new MainViewModel();
-
-    [RelayCommand]
-    private void GoToDetailsView()
-    {
-        _parent.GoToDetails();
-    }
 }
