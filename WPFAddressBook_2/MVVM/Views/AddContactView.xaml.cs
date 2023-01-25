@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFAddressBook.MVVM.Views
+namespace WPFAddressBook_2.MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for ContactsView.xaml
+    /// Interaction logic for AddContactView.xaml
     /// </summary>
-    public partial class ContactsView : UserControl
+    public partial class AddContactView : UserControl
     {
-        public ContactsView()
+        public AddContactView()
         {
             InitializeComponent();
         }

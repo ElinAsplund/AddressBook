@@ -17,8 +17,9 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Command="{Binding GoToContactsCommand}" Content="Contacts" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
-            <Button Command="{Binding GoToDetailsCommand}" Content="Details" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
+            <Button Command="{Binding GoToContactsCommand}" Content="Kontakter" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
+            <Button Command="{Binding GoToAddContactCommand}" Content="Lägg till kontakt" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
+            <Button Command="{Binding GoToDetailsCommand}" Content="Detaljer" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
         </StackPanel>
 
         <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
@@ -28,6 +29,9 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type viewmodels:DetailsViewModel}">
                     <views:DetailsView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:AddContactViewModel}">
+                    <views:AddContactView />
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

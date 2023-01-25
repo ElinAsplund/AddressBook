@@ -24,6 +24,12 @@ namespace WPFAddressBook_2.MVVM.ViewModels
         {
             CurrentViewModel= new ContactsViewModel(this);
         }
+        
+        [RelayCommand]
+        public void GoToAddContact()
+        {
+            CurrentViewModel= new AddContactViewModel();
+        }
 
         public MainViewModel()
         {
