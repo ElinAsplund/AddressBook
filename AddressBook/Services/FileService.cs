@@ -3,7 +3,7 @@ using System.Text.Json.Nodes;
 
 namespace AddressBook.Services;
 
-internal class FileService
+public class FileService
 {
     public void Save(string filePath, string content)
     {
