@@ -20,7 +20,7 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     public void GoToContacts()
     {
-        CurrentViewModel= new ContactsViewModel(this);
+        CurrentViewModel= new ContactsViewModel();
     }
 
     [RelayCommand]
@@ -31,6 +31,6 @@ public partial class MainViewModel : ObservableObject
 
     public MainViewModel()
     {
-        CurrentViewModel = new ContactsViewModel(this);
+        CurrentViewModel = new ContactsViewModel();
     }
 }

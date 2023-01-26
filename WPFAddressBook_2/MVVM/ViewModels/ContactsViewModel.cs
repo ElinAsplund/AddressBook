@@ -32,10 +32,11 @@ public partial class ContactsViewModel : ObservableObject
     [ObservableProperty]
     private string city = string.Empty;
 
+    //ÄR DESSA SAMMA LISTA? -> CONTACTSERVICE
     [ObservableProperty]
     private ObservableCollection<ContactModel> contacts = null!;
 
-    public ContactsViewModel(MainViewModel parent)
+    public ContactsViewModel()
     {
         Contacts = ContactService.Get();
     }

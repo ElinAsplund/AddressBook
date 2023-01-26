@@ -7,6 +7,8 @@ namespace WPFAddressBook_2.Services;
 public static class ContactService
 {
     private static FileService fileService;
+
+    //ÄR DESSA SAMMA LISTA? -> CONTACTSVIEWMODEL
     private static ObservableCollection<ContactModel> contacts;
 
     static ContactService()
