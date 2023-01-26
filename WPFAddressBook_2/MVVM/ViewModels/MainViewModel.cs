@@ -8,19 +8,34 @@ namespace WPFAddressBook_2.MVVM.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {
+
+    [ObservableProperty]
+    private ObservableCollection<ContactModel> contacts = null!;
+
     [ObservableProperty]
     private static ObservableObject currentViewModel = null!;
 
+    [ObservableProperty]
+    public ContactModel selectedContact;
+
     [RelayCommand]
-    public void GoToDetails()
+    public void GoToDetails(object sender)
     {
-        CurrentViewModel = new DetailsViewModel();
+        var contact = sender as ContactModel;
+
+        if (contact != null)
+            CurrentViewModel = new DetailsViewModel(contact);
+        else
+            CurrentViewModel = new DetailsViewModel();
     }
-    
+
     [RelayCommand]
     public void GoToContacts()
     {
-        CurrentViewModel= new ContactsViewModel();
+        if (selectedContact != null)
+            CurrentViewModel= new ContactsViewModel(selectedContact);
+        else
+            CurrentViewModel = new ContactsViewModel();
     }
 
     [RelayCommand]
@@ -32,5 +47,6 @@ public partial class MainViewModel : ObservableObject
     public MainViewModel()
     {
         CurrentViewModel = new ContactsViewModel();
+        Contacts = ContactService.Get();
     }
 }

@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFAddressBook_2"
+        xmlns:models="clr-namespace:WPFAddressBook_2.MVVM.Models"
         xmlns:viewmodels="clr-namespace:WPFAddressBook_2.MVVM.ViewModels"
-        xmlns:views="clr-namespace:WPFAddressBook_2.MVVM.Views"
+        xmlns:views="clr-namespace:WPFAddressBook_2.MVVM.Views" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         
         mc:Ignorable="d"
@@ -19,21 +20,67 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Command="{Binding GoToContactsCommand}" Content="Kontakter" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
             <Button Command="{Binding GoToAddContactCommand}" Content="Lägg till kontakt" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
-            <Button Command="{Binding GoToDetailsCommand}" Content="Detaljer" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
         </StackPanel>
 
-        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
-            <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel}">
-                    <views:ContactsView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:DetailsViewModel}">
-                    <views:DetailsView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewmodels:AddContactViewModel}">
-                    <views:AddContactView />
-                </DataTemplate>
-            </ContentControl.Resources>
-        </ContentControl>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Margin="20 5 0 0" Name="Main" Background="BlanchedAlmond">
+                <ListView BorderThickness="0" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectedItem="{Binding SelectedContact}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding GoToContactsCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListView.ItemTemplate>
+                        <DataTemplate DataType="models:ContactModel">
+                            <StackPanel Margin="0 5 0 5" Background="MistyRose">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0" Margin="5 5 5 5">
+                                        <TextBlock Name="tblock_DisplayName" FontWeight="Bold" Text="{Binding DisplayName}" />
+                                        <TextBlock Name="tblock_Email" Text="{Binding Email}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" >
+                                        <Button Name="Btn_Edit" Content="ÄNDRA" Margin="0 0 5 0" Padding="5" Grid.Column="1" VerticalAlignment="Center" Background="#78b869" BorderThickness="0" Foreground="White" FontWeight="DemiBold">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                                    <i:InvokeCommandAction Command="{Binding Path=DataContext.GoToDetailsCommand, ElementName=Main}" CommandParameter="{Binding .}" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                        </Button>
+                                        <Button Name="Btn_Remove" Click="Btn_Remove_Click" Content="TA BORT" Grid.Column="1" Style="{StaticResource removeButton}" />
+                                    </StackPanel>
+                                </Grid>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+            <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel}">
+                        <views:ContactsView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:DetailsViewModel}">
+                        <views:DetailsView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:AddContactViewModel}">
+                        <views:AddContactView />
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+        </Grid>
+        
     </Grid>
 </Window>

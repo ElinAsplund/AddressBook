@@ -32,14 +32,33 @@ public partial class ContactsViewModel : ObservableObject
     [ObservableProperty]
     private string city = string.Empty;
 
-    //ÄR DESSA SAMMA LISTA? -> CONTACTSERVICE
     [ObservableProperty]
     private ObservableCollection<ContactModel> contacts = null!;
 
     public ContactsViewModel()
     {
-        Contacts = ContactService.Get();
+
     }
+
+    public ContactsViewModel(ContactModel selectedContact)
+    {
+        firstName = selectedContact.FirstName;
+        lastName = selectedContact.LastName;
+        phoneNumber = selectedContact.PhoneNumber;
+        email = selectedContact.Email;
+        streetName = selectedContact.StreetName;
+        postalCode = selectedContact.PostalCode;
+        city = selectedContact.City;
+    }
+
+    //[ObservableProperty]
+    //public ContactModel selectedContact;
+
+    //[RelayCommand]
+    //private void SaveEdits()
+    //{
+    //    ContactService.Edit(selectedContact);
+    //}
 
     //[RelayCommand]
     //private void AddContact()
@@ -69,15 +88,4 @@ public partial class ContactsViewModel : ObservableObject
     //    PostalCode = "";
     //    City = "";
     //}
-
-    [ObservableProperty]
-    private ContactModel selectedContact = null!;
-
-    [RelayCommand]
-    private void SaveEdits()
-    {
-        ContactService.Edit(selectedContact);
-        Contacts = ContactService.Get();
-    }
-
 }

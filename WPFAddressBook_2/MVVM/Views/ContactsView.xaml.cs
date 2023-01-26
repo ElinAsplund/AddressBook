@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using CommunityToolkit.Mvvm.Input;
+using System.Windows;
 using System.Windows.Controls;
 using WPFAddressBook_2.MVVM.Models;
 using WPFAddressBook_2.Services;
@@ -29,8 +30,8 @@ public partial class ContactsView : UserControl
         }
     }
 
-    //private void Btn_Edit_Click(object sender, RoutedEventArgs e)
-    //{
+    private void Btn_Edit_Click(object sender, RoutedEventArgs e)
+    {
         //var button = sender as Button;
         //var item = (ContactModel)button!.DataContext;
 
@@ -38,7 +39,7 @@ public partial class ContactsView : UserControl
         //mainViewModel.GoToDetails();
 
         //MainViewModel.GoToDetails();
-    //}
+    }
 
     //private void ListView_Selected(object sender, RoutedEventArgs e)
     //{

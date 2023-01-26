@@ -5,77 +5,47 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFAddressBook_2.MVVM.Views"
              xmlns:viewmodels="clr-namespace:WPFAddressBook_2.MVVM.ViewModels"
-             xmlns:models="clr-namespace:WPFAddressBook_2.MVVM.Models"
+             xmlns:models="clr-namespace:WPFAddressBook_2.MVVM.Models" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}" 
-             Height="440" Width="840">
-    <Grid Margin="20 5 20 20">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+             Height="440" Width="420">
 
-        <Grid Grid.Column="0" Margin="0 0 20 0">
-            <ListView BorderThickness="0" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectedItem="{Binding SelectedContact}">
-                <ListView.ItemTemplate>
-                    <DataTemplate DataType="models:ContactModel">
-                        <StackPanel Margin="0 5 0 5" Background="MistyRose">
+    <!-- This WPF-app was made with major help from classmate Sara Lindström-->
 
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
+    <Grid Margin="5 5 20 20">
 
-                                <StackPanel Grid.Column="0" Margin="5 5 5 5">
-                                    <TextBlock Name="tblock_DisplayName" FontWeight="Bold" Text="{Binding DisplayName}" />
-                                    <TextBlock Name="tblock_Email" Text="{Binding Email}" />
-                                </StackPanel>
-                                <StackPanel Grid.Column="1" Orientation="Horizontal" >
-                                    <!--<Button Name="Btn_Edit" Click="Btn_Edit_Click" Content="ÄNDRA" Margin="0 0 5 0" Padding="5" Grid.Column="1" VerticalAlignment="Center" Background="#78b869" BorderThickness="0" Foreground="White" FontWeight="DemiBold"/>-->
-                                    <Button Name="Btn_Remove" Click="Btn_Remove_Click" Content="TA BORT" Grid.Column="1" Style="{StaticResource removeButton}" />
-                                </StackPanel>
-                            </Grid>
-
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
-
-        <Grid Grid.Column="1" Margin="20 0 0 0" Background="Beige">
+        <Grid Margin="0 5 0 0" Background="Beige">
 
             <StackPanel>
                 <TextBlock>
                     <Run Text="Förnamn:"/>
-                    <Run Text="{Binding SelectedContact.FirstName}"/>
+                    <Run Text="{Binding FirstName}"/>
                 </TextBlock>
-                <TextBox Text="{Binding SelectedContact.FirstName}"/>
                 <TextBlock>
                     <Run Text="Efternamn:"/>
-                    <Run Text="{Binding SelectedContact.LastName}"/>
+                    <Run Text="{Binding LastName}"/>
                 </TextBlock>
                 <TextBlock>
                     <Run Text="Telefonnummer:"/>
-                    <Run Text="{Binding SelectedContact.PhoneNumber}"/>
+                    <Run Text="{Binding PhoneNumber}"/>
                 </TextBlock>
                 <TextBlock>
                     <Run Text="Email:"/>
-                    <Run Text="{Binding SelectedContact.Email}"/>
+                    <Run Text="{Binding Email}"/>
                 </TextBlock>
                 <TextBlock>
                     <Run Text="Gatuadress:"/>
-                    <Run Text="{Binding SelectedContact.StreetName}"/>
+                    <Run Text="{Binding StreetName}"/>
                 </TextBlock>
                 <TextBlock>
                     <Run Text="Postkod:"/>
-                    <Run Text="{Binding SelectedContact.PostalCode}"/>
+                    <Run Text="{Binding PostalCode}"/>
                 </TextBlock>
                 <TextBlock>
                     <Run Text="Stad:"/>
-                    <Run Text="{Binding SelectedContact.City}"/>
+                    <Run Text="{Binding City}"/>
                 </TextBlock>
-                <Button Content="SPARA ÄNDRINGAR" Command="{Binding SaveEditsCommand}" Style="{StaticResource addButton}" HorizontalAlignment="Center" />
+                <!--<Button Content="SPARA ÄNDRINGAR" Command="{Binding SaveEditsCommand}" Style="{StaticResource addButton}" HorizontalAlignment="Center" />-->
             </StackPanel>
         </Grid>
         
