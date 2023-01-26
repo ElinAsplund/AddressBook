@@ -1,16 +1,14 @@
-﻿<UserControl x:Class="WPFAddressBook_2.MVVM.Views.AddContactView"
+﻿<UserControl x:Class="WPFAddressBook_2.MVVM.Views.EditContactView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFAddressBook_2.MVVM.Views"
-             xmlns:viewmodels="clr-namespace:WPFAddressBook_2.MVVM.ViewModels"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}" 
-             Height="440" Width="420">
+             d:DesignHeight="440" d:DesignWidth="420">
     <Grid Margin="20 5 20 30">
-        <StackPanel Grid.Row="0">
-            <TextBlock Text="Lägg till kontakt" FontSize="16" Margin="0 0 0 5" FontWeight="DemiBold"/>
+        <StackPanel>
+            <TextBlock Text="Ändra kontakt" FontSize="16" Margin="0 0 0 5" FontWeight="DemiBold"/>
 
             <TextBlock Text="Förnamn"/>
             <TextBox Name="tb_FirstName" Padding="3" Margin="0 0 0 10" Text="{Binding FirstName}" />
@@ -33,6 +31,6 @@
             <TextBlock Text="Stad"/>
             <TextBox Name="tb_City" Padding="3" Margin="0 0 0 10" Text="{Binding City}" />
         </StackPanel>
-        <Button Name="btn_Add" Command="{Binding AddContactCommand}" Grid.Row="1" Content="LÄGG TILL" Style="{StaticResource addButton}" />
+        <Button Content="SPARA ÄNDRINGAR" Command="{Binding SaveEditsCommand}" Style="{StaticResource addButton}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
     </Grid>
 </UserControl>

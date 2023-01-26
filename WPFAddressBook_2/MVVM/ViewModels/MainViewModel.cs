@@ -19,14 +19,14 @@ public partial class MainViewModel : ObservableObject
     public ContactModel selectedContact;
 
     [RelayCommand]
-    public void GoToDetails(object sender)
+    public void GoToEditContact(object sender)
     {
         var contact = sender as ContactModel;
 
         if (contact != null)
-            CurrentViewModel = new DetailsViewModel(contact);
+            CurrentViewModel = new EditContactViewModel(contact);
         else
-            CurrentViewModel = new DetailsViewModel();
+            CurrentViewModel = new EditContactViewModel();
     }
 
     [RelayCommand]

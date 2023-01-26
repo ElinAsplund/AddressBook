@@ -18,8 +18,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Command="{Binding GoToContactsCommand}" Content="Kontakter" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
-            <Button Command="{Binding GoToAddContactCommand}" Content="Lägg till kontakt" Margin="5" Padding="20 5" Background="BurlyWood" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
+            <Button Command="{Binding GoToContactsCommand}" Content="Kontakter" Margin="5" Padding="20 5" Background="#94544c" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
+            <Button Command="{Binding GoToAddContactCommand}" Content="Lägg till kontakt" Margin="5" Padding="20 5" Background="#94544c" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
         </StackPanel>
 
 
@@ -53,7 +53,7 @@
                                         <Button Name="Btn_Edit" Content="ÄNDRA" Margin="0 0 5 0" Padding="5" Grid.Column="1" VerticalAlignment="Center" Background="#78b869" BorderThickness="0" Foreground="White" FontWeight="DemiBold">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
-                                                    <i:InvokeCommandAction Command="{Binding Path=DataContext.GoToDetailsCommand, ElementName=Main}" CommandParameter="{Binding .}" />
+                                                    <i:InvokeCommandAction Command="{Binding Path=DataContext.GoToEditContactCommand, ElementName=Main}" CommandParameter="{Binding .}" />
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
                                         </Button>
@@ -72,11 +72,11 @@
                     <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel}">
                         <views:ContactsView />
                     </DataTemplate>
-                    <DataTemplate DataType="{x:Type viewmodels:DetailsViewModel}">
-                        <views:DetailsView />
-                    </DataTemplate>
                     <DataTemplate DataType="{x:Type viewmodels:AddContactViewModel}">
                         <views:AddContactView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:EditContactViewModel}">
+                        <views:EditContactView />
                     </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>
