@@ -10,17 +10,27 @@
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         
         mc:Ignorable="d"
-        Title="Contacts" Height="510" Width="860">
+        Title="Contacts" Height="570" Width="860">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+        <Grid Grid.Row="0" Margin="20 0 20 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Command="{Binding GoToContactsCommand}" Content="Kontakter" Margin="0 0 5 0" Padding="20 5" Background="#94544c" BorderThickness="0" Foreground="White" FontWeight="DemiBold" HorizontalAlignment="Right" />
+            <Button Grid.Column="1" Command="{Binding GoToAddContactCommand}" Content="Lägg till kontakt" Margin="10 0 0 0" Padding="20 5" Background="#94544c" BorderThickness="0" Foreground="White" FontWeight="DemiBold" HorizontalAlignment="Left" />
+        </Grid>
+        
+        <!--<StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Command="{Binding GoToContactsCommand}" Content="Kontakter" Margin="5" Padding="20 5" Background="#94544c" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
             <Button Command="{Binding GoToAddContactCommand}" Content="Lägg till kontakt" Margin="5" Padding="20 5" Background="#94544c" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
-        </StackPanel>
+        </StackPanel>-->
 
 
         <Grid Grid.Row="1">
@@ -29,7 +39,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Margin="20 5 0 0" Name="Main" Background="BlanchedAlmond">
+            <Grid Grid.Column="0" Margin="20 5 0 20" Name="Main">
                 <ListView BorderThickness="0" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectedItem="{Binding SelectedContact}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">

@@ -7,10 +7,10 @@
              xmlns:viewmodels="clr-namespace:WPFAddressBook_2.MVVM.ViewModels"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}" 
-             Height="440" Width="420">
-    <Grid Margin="20 5 20 30">
-        <StackPanel Grid.Row="0">
-            <TextBlock Text="Lägg till kontakt" FontSize="16" Margin="0 0 0 5" FontWeight="DemiBold"/>
+             Height="500" Width="420">
+    <Grid Margin="10 5 20 30" Background="MistyRose">
+        <StackPanel Grid.Row="0" Margin="30 0 30 0">
+            <TextBlock Text="Lägg till kontakt" FontSize="16" Margin="0 20 0 10" FontWeight="DemiBold" Foreground="#683b36"/>
 
             <TextBlock Text="Förnamn"/>
             <TextBox Name="tb_FirstName" Padding="3" Margin="0 0 0 10" Text="{Binding FirstName}" />
@@ -33,6 +33,6 @@
             <TextBlock Text="Stad"/>
             <TextBox Name="tb_City" Padding="3" Margin="0 0 0 10" Text="{Binding City}" />
         </StackPanel>
-        <Button Name="btn_Add" Command="{Binding AddContactCommand}" Grid.Row="1" Content="LÄGG TILL" Style="{StaticResource addButton}" />
+        <Button Name="btn_Add" Command="{Binding AddContactCommand}" Grid.Row="1" Content="LÄGG TILL" Margin="30 0 30 20" Style="{StaticResource addButton}" />
     </Grid>
 </UserControl>

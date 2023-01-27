@@ -8,11 +8,11 @@
              xmlns:models="clr-namespace:WPFAddressBook_2.MVVM.Models" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}" 
-             Height="440" Width="420">
+             Height="500" Width="420">
 
     <!-- This WPF-app was made with major help from classmate Sara Lindström-->
 
-    <Grid Margin="5 5 20 20" Background="MistyRose">
+    <Grid Margin="50 5 50 20" Background="MistyRose">
 
         <Grid HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>

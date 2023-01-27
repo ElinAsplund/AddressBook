@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:WPFAddressBook_2.MVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="440" d:DesignWidth="420">
-    <Grid Margin="20 5 20 30">
-        <StackPanel>
-            <TextBlock Text="Ändra kontakt" FontSize="16" Margin="0 0 0 5" FontWeight="DemiBold"/>
+    <Grid Margin="10 5 20 30" Background="MistyRose">
+        <StackPanel Margin="30 0 30 0">
+            <TextBlock Text="Ändra kontakt" FontSize="16" Margin="0 20 0 10" FontWeight="DemiBold" Foreground="#683b36"/>
 
             <TextBlock Text="Förnamn"/>
             <TextBox Name="tb_FirstName" Padding="3" Margin="0 0 0 10" Text="{Binding FirstName}" />
@@ -31,6 +31,6 @@
             <TextBlock Text="Stad"/>
             <TextBox Name="tb_City" Padding="3" Margin="0 0 0 10" Text="{Binding City}" />
         </StackPanel>
-        <Button Content="SPARA ÄNDRINGAR" Command="{Binding SaveEditsCommand}" Style="{StaticResource addButton}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+        <Button Content="SPARA ÄNDRINGAR" Command="{Binding SaveEditsCommand}" Style="{StaticResource addButton}" Margin="30 0 30 20" VerticalAlignment="Bottom" />
     </Grid>
 </UserControl>
