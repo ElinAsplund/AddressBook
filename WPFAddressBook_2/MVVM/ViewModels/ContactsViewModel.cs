@@ -50,42 +50,4 @@ public partial class ContactsViewModel : ObservableObject
         postalCode = selectedContact.PostalCode;
         city = selectedContact.City;
     }
-
-    //[ObservableProperty]
-    //public ContactModel selectedContact;
-
-    //[RelayCommand]
-    //private void SaveEdits()
-    //{
-    //    ContactService.Edit(selectedContact);
-    //}
-
-    //[RelayCommand]
-    //private void AddContact()
-    //{
-    //    var contact = new ContactModel
-    //    {
-    //        FirstName = FirstName,
-    //        LastName = LastName,
-    //        PhoneNumber = PhoneNumber,
-    //        Email = Email,
-    //        StreetName = StreetName,
-    //        PostalCode = PostalCode,
-    //        City = City
-    //    };
-
-    //    ContactService.Add(contact);
-    //    ClearForm();
-    //}
-
-    //private void ClearForm()
-    //{
-    //    FirstName = "";
-    //    LastName = "";
-    //    PhoneNumber = "";
-    //    Email = "";
-    //    StreetName = "";
-    //    PostalCode = "";
-    //    City = "";
-    //}
 }
