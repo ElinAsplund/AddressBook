@@ -33,6 +33,6 @@
             <TextBlock Text="Stad"/>
             <TextBox Name="tb_City" Padding="3" Margin="0 0 0 10" Text="{Binding City}" />
         </StackPanel>
-        <Button Name="btn_Add" Command="{Binding AddContactCommand}" Grid.Row="1" Content="LÄGG TILL" Margin="30 0 30 20" Style="{StaticResource addButton}" />
+        <Button Name="btn_Add" Command="{Binding AddContactCommand}" Content="LÄGG TILL" Margin="30 0 30 20" Style="{StaticResource addButton}" />
     </Grid>
 </UserControl>

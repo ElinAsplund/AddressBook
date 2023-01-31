@@ -31,6 +31,6 @@
             <TextBlock Text="Stad"/>
             <TextBox Name="tb_City" Padding="3" Margin="0 0 0 10" Text="{Binding City}" />
         </StackPanel>
-        <Button Content="SPARA ÄNDRINGAR" Command="{Binding SaveEditsCommand}" Style="{StaticResource addButton}" Margin="30 0 30 20" VerticalAlignment="Bottom" />
+        <Button Content="SPARA ÄNDRINGAR" Command="{Binding SaveEditsCommand}" Style="{StaticResource addButton}" Margin="30 0 30 20" />
     </Grid>
 </UserControl>
