@@ -35,7 +35,7 @@ public partial class MainViewModel : ObservableObject
         if (selectedContact != null)
             CurrentViewModel= new ContactsViewModel(selectedContact);
         else
-            CurrentViewModel = new ContactsViewModel();
+            CurrentViewModel = new EmptyContactViewModel();
     }
 
     [RelayCommand]
