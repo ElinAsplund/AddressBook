@@ -26,12 +26,6 @@
             <Button Grid.Column="0" Command="{Binding GoToContactsCommand}" Content="Kontakter" Margin="0 0 5 0" Padding="20 5" Background="#94544c" BorderThickness="0" Foreground="White" FontWeight="DemiBold" HorizontalAlignment="Right" />
             <Button Grid.Column="1" Command="{Binding GoToAddContactCommand}" Content="Lägg till kontakt" Margin="10 0 0 0" Padding="20 5" Background="#94544c" BorderThickness="0" Foreground="White" FontWeight="DemiBold" HorizontalAlignment="Left" />
         </Grid>
-        
-        <!--<StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Command="{Binding GoToContactsCommand}" Content="Kontakter" Margin="5" Padding="20 5" Background="#94544c" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
-            <Button Command="{Binding GoToAddContactCommand}" Content="Lägg till kontakt" Margin="5" Padding="20 5" Background="#94544c" BorderThickness="0" Foreground="White" FontWeight="DemiBold" />
-        </StackPanel>-->
-
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -87,6 +81,9 @@
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type viewmodels:EditContactViewModel}">
                         <views:EditContactView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:EmptyContactViewModel}">
+                        <views:EmptyContactView />
                     </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>

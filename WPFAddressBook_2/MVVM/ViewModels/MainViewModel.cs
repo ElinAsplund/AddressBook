@@ -46,7 +46,7 @@ public partial class MainViewModel : ObservableObject
 
     public MainViewModel()
     {
-        CurrentViewModel = new ContactsViewModel();
+        CurrentViewModel = new EmptyContactViewModel();
         Contacts = ContactService.Get();
     }
 }
