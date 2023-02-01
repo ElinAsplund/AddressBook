@@ -12,7 +12,7 @@ namespace WPFAddressBook_2.MVVM.ViewModels;
 
 public partial class EditContactViewModel : ObservableObject
 {
-    private ContactModel oldContact;
+    private ContactModel oldContact = null!;
 
     [ObservableProperty]
     private string firstName = string.Empty;

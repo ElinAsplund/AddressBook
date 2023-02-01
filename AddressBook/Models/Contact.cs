@@ -7,8 +7,6 @@ internal interface IContact
     string LastName { get; set; }
     string PhoneNumber { get; set; }
     string Email { get; set; }
-
-    //Address-info
     string StreetName { get; set; }
     string PostalCode { get; set; }
     string City { get; set; }

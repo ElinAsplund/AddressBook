@@ -8,7 +8,6 @@ namespace WPFAddressBook_2.MVVM.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {
-
     [ObservableProperty]
     private ObservableCollection<ContactModel> contacts = null!;
 

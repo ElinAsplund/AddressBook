@@ -11,9 +11,4 @@ public partial class AddContactView : UserControl
     {
         InitializeComponent();
     }
-
-    private void btn_Add_Click(object sender, System.Windows.RoutedEventArgs e)
-    {
-
-    }
 }

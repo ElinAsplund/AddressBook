@@ -27,22 +27,22 @@ public class MenuService
             switch (option)
             {
                 case "1":
-                    OptionOne();
+                    OptionAdd();
                     break;
                 case "2":
-                    OptionTwo();
+                    OptionShowAll();
                     break;
                 case "3":
-                    OptionThree();
+                    OptionShowOne();
                     break;
                 case "4":
-                    OptionFour();
+                    OptionRemove();
                     break;
                 case "5":
-                    OptionFive();
+                    OptionShutDownApp();
                     break;
                 default:
-                    OptionDefault();
+                    Default();
                     break;
             }
         }
@@ -58,7 +58,7 @@ public class MenuService
         }
         catch { }
     }
-    private void OptionOne()
+    private void OptionAdd()
     {
         Console.Clear();
         Contact contact = new Contact();
@@ -109,7 +109,7 @@ public class MenuService
 
         Console.ReadKey();
     }
-    private void OptionTwo()
+    private void OptionShowAll()
     {
         Console.Clear();
         Console.WriteLine("-- ALLA KONTAKTER --\n");
@@ -126,7 +126,7 @@ public class MenuService
         }
         Console.ReadKey();
     }
-    private void OptionThree()
+    private void OptionShowOne()
     {
         Console.Clear();
         Console.WriteLine("-- DETALJERAD KONTAKT-INFORMATION --\n");
@@ -173,7 +173,7 @@ public class MenuService
         }
         Console.ReadKey();
     }
-    private void OptionFour()
+    private void OptionRemove()
     {
         Console.Clear();
         Console.WriteLine("-- TA BORT EN KONTAKT --\n");
@@ -220,7 +220,7 @@ public class MenuService
             Console.ReadKey();
         }
     }
-    private void OptionFive()
+    private void OptionShutDownApp()
     {
         Console.Clear();
         Console.WriteLine("             _________\r\n            / ======= \\\r\n           / __________\\\r\n          | ___________ |\r\n          | | -       | |\r\n          | |         | |\r\n          | |_________| |________________________\r\n          \\=____________/        BYE BYE! <3     )\r\n          / \"\"\"\"\"\"\"\"\"\"\" \\                       /\r\n         / ::::::::::::: \\                  =D-'\r\n        (_________________)");
@@ -228,7 +228,7 @@ public class MenuService
         Console.ReadKey();
         isRunning = false;
     }
-    private void OptionDefault()
+    private void Default()
     {
         Console.Clear();
         Console.WriteLine("-- OJ! NÅGOT GICK FEL --\n\nVänligen ange en SIFFRA 1-5!\n----------------------------------------------------------------------\n(tryck på en valfri knapp för att komma vidare...)");

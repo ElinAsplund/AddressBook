@@ -3,36 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WPFAddressBook_2.MVVM.Views"
              xmlns:viewmodels="clr-namespace:WPFAddressBook_2.MVVM.ViewModels"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}" 
              Height="500" Width="420">
-    <Grid Margin="10 5 20 30" Background="MistyRose">
-        <StackPanel Grid.Row="0" Margin="30 0 30 0">
-            <TextBlock Text="Lägg till kontakt" FontSize="16" Margin="0 20 0 10" FontWeight="DemiBold" Foreground="#683b36"/>
+
+    <!-- This WPF-app was made with major help from classmate Sara Lindström-->
+
+    <Grid Margin="10 5 20 30" 
+          Background="MistyRose">
+        
+        <StackPanel Grid.Row="0" 
+                    Margin="30 0 30 0">
+            <TextBlock Text="Lägg till kontakt" 
+                       FontSize="16" 
+                       Margin="0 20 0 10" 
+                       FontWeight="DemiBold" 
+                       Foreground="#683b36"/>
 
             <TextBlock Text="Förnamn"/>
-            <TextBox Name="tb_FirstName" Padding="3" Margin="0 0 0 10" Text="{Binding FirstName}" />
+            <TextBox Name="tb_FirstName" 
+                     Padding="3" 
+                     Margin="0 0 0 10" 
+                     Text="{Binding FirstName}" />
 
             <TextBlock Text="Efternamn"/>
-            <TextBox Name="tb_LastName" Padding="3" Margin="0 0 0 10" Text="{Binding LastName}" />
+            <TextBox Name="tb_LastName"
+                     Padding="3"
+                     Margin="0 0 0 10"
+                     Text="{Binding LastName}" />
 
             <TextBlock Text="Telefonnummer"/>
-            <TextBox Name="tb_PhoneNumber" Padding="3" Margin="0 0 0 10" Text="{Binding PhoneNumber}" />
+            <TextBox Name="tb_PhoneNumber" 
+                     Padding="3" 
+                     Margin="0 0 0 10" 
+                     Text="{Binding PhoneNumber}" />
 
             <TextBlock Text="Email"/>
-            <TextBox Name="tb_Email" Padding="3" Margin="0 0 0 10" Text="{Binding Email}"/>
+            <TextBox Name="tb_Email" 
+                     Padding="3" 
+                     Margin="0 0 0 10" 
+                     Text="{Binding Email}"/>
 
             <TextBlock Text="Gatuadress"/>
-            <TextBox Name="tb_SteetName" Padding="3" Margin="0 0 0 10" Text="{Binding StreetName}"/>
+            <TextBox Name="tb_SteetName" 
+                     Padding="3" 
+                     Margin="0 0 0 10" 
+                     Text="{Binding StreetName}"/>
 
             <TextBlock Text="Postkod"/>
-            <TextBox Name="tb_PostalCode" Padding="3" Margin="0 0 0 10" Text="{Binding PostalCode}" />
+            <TextBox Name="tb_PostalCode" 
+                     Padding="3" 
+                     Margin="0 0 0 10" 
+                     Text="{Binding PostalCode}" />
 
             <TextBlock Text="Stad"/>
-            <TextBox Name="tb_City" Padding="3" Margin="0 0 0 10" Text="{Binding City}" />
+            <TextBox Name="tb_City" 
+                     Padding="3" 
+                     Margin="0 0 0 10" 
+                     Text="{Binding City}" />
         </StackPanel>
-        <Button Name="btn_Add" Command="{Binding AddContactCommand}" Content="LÄGG TILL" Margin="30 0 30 20" Style="{StaticResource addButton}" />
+        <Button Command="{Binding AddContactCommand}" 
+                Content="LÄGG TILL" 
+                Margin="30 0 30 20"
+                Style="{StaticResource addButton}" /> 
     </Grid>
 </UserControl>

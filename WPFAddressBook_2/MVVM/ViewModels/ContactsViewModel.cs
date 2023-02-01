@@ -10,7 +10,6 @@ namespace WPFAddressBook_2.MVVM.ViewModels;
 
 public partial class ContactsViewModel : ObservableObject
 {
-
     [ObservableProperty]
     private string firstName = string.Empty;
     
