@@ -13,7 +13,7 @@ public partial class AddContactViewModel : ObservableObject
     }
 
     [ObservableProperty]
-    private string firstName = string.Empty;
+    private string firstName = "Hej";
 
     [ObservableProperty]
     private string lastName = string.Empty;

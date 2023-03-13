@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewmodels="clr-namespace:WPFAddressBook_2.MVVM.ViewModels"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance Type=viewmodels:ContactsViewModel}" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:AddContactViewModel}" 
              Height="500" Width="420">
 
     <!-- This WPF-app was made with major help from classmate Sara Lindström-->
